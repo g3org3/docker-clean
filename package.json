@@ -1,5 +1,5 @@
 {
-  "name": "docker-clean",
+  "name": "george-docker-clean",
   "version": "0.0.1",
   "description": "docker clean",
   "main": "lib/docker-clean.sh",
