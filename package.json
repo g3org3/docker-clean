@@ -1,6 +1,6 @@
 {
   "name": "dockerclean",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "docker clean",
   "main": "lib/docker-clean.sh",
   "scripts": {
