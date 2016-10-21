@@ -12,5 +12,12 @@ $ docker-clean [options]
 options:
   -v display version
   -s silent mode
-  -a remove all not-running containers (soon)
+  -a | --all (soon)
+    by default now
+  --con Remove stopped containers
+  --img Remove unlabeled images
+  --vol Remove orphaned volumes
 ```
+
+## Credits
+[chadoe - docker-cleanup-volumes](https://github.com/chadoe/docker-cleanup-volumes)
