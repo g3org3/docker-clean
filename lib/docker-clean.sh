@@ -65,7 +65,7 @@ clean_all() {
 }
 
 if [[ "$1" = "-v" ]]; then
-  echo "version: v0.0.3";
+  echo "version: v0.0.4";
 elif [[ "$1" = "-a" || "$1" = "--all" ]]; then
   clean_silent;
 elif [[ "$1" = "-c" || "$1" = "--con" ]]; then
