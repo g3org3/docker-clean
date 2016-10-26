@@ -74,6 +74,14 @@ elif [[ "$1" = "-i" || "$1" = "--images" ]]; then
   clean_silent_images;
 elif [[ "$1" = "-x" || "$1" = "--vol" ]]; then
   clean_silent_volumes;
+elif [[ "$1" = "-av" || "$1" = "--all" ]]; then
+  clean_all;
+elif [[ "$1" = "-cv" || "$1" = "--con" ]]; then
+  clean_containers;
+elif [[ "$1" = "-iv" || "$1" = "--images" ]]; then
+  clean_silent_images;
+elif [[ "$1" = "-xv" || "$1" = "--vol" ]]; then
+  clean_volumes;
 else
   usage;
 fi

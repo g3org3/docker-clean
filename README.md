@@ -7,16 +7,26 @@ $ npm i -g dockerclean
 
 ## Usage
 ```bash
-$ docker-clean [options]
+USAGE:
+ docker-clean [options]
 
-options:
-  -v display version
-  -s silent mode
-  -a | --all (soon)
-    by default now
-  --con Remove stopped containers
-  --img Remove unlabeled images
-  --vol Remove orphaned volumes
+Options
+  -v       	      Display version
+  --con, -c	      Remove exited containers
+  --vol, -x       Clean up volumes
+  --images, -i	  Remove all images tagged with <none>
+  --all, -a	      Remove all of the above
+```
+
+### Debug
+```bash
+# append a 'v' to toggle verbose info
+
+# verbose info for all
+docker-clean -av
+
+# verbose info for remove exited containers
+docker-clean -cv
 ```
 
 ## Credits
