@@ -24,15 +24,15 @@ clean_volumes() {
 }
 
 clean_silent_containers() {
-  echo "  * Removing images with name <none> ...";
-  docker rmi `docker images | grep none | awk '{print $3}'` 2> /dev/null;
-}
-
-clean_silent_images() {
   echo "  * Removing unused containers ...";
   docker rm `docker ps -a | grep Exited | awk '{print $1}'` 2> /dev/null;
   docker rm `docker ps -a | grep Created | awk '{print $1}'` 2> /dev/null;
   docker rm `docker ps -a | grep Dead | awk '{print $1}'` 2> /dev/null;
+}
+
+clean_silent_images() {
+  echo "  * Removing images with name <none> ...";
+  docker rmi `docker images | grep none | awk '{print $3}'` 2> /dev/null;
 }
 
 clean_silent_volumes() {
@@ -67,31 +67,31 @@ clean_all() {
   clean_volumes;
 }
 
-checkversion() {
-  #check file
-  DC_RE_PATH="$HOME/.docker-clean-remote-version"
-  if [[ -f $DC_RE_PATH ]]; then
-    getremoteversion $DC_RE_PATH
-    DC_RE_VAL="`cat $DC_RE_PATH`"
-    if [[ "$DC_RE_VAL" = "$VERSION" ]]; then
-      echo "version: v$DC_RE_VAL"
-    else
-      printf "${RED}** Theres a new version: v$DC_RE_VAL **${NC}"
-    fi
-  else
-    touch $DC_RE_PATH
-    getremoteversion $DC_RE_PATH
-  fi
-
-}
-
-getremoteversion() {
-  curl -sS https://raw.githubusercontent.com/g3org3/docker-clean/master/.version > $1
-}
-
-if [[ "`which curl`" ]]; then
-  checkversion
-fi
+# checkversion() {
+#   #check file
+#   DC_RE_PATH="$HOME/.docker-clean-remote-version"
+#   if [[ -f $DC_RE_PATH ]]; then
+#     getremoteversion $DC_RE_PATH
+#     DC_RE_VAL="`cat $DC_RE_PATH`"
+#     if [[ "$DC_RE_VAL" = "$VERSION" ]]; then
+#       echo "version: v$DC_RE_VAL"
+#     else
+#       printf "${RED}** Theres a new version: v$DC_RE_VAL **${NC}"
+#     fi
+#   else
+#     touch $DC_RE_PATH
+#     getremoteversion $DC_RE_PATH
+#   fi
+#
+# }
+#
+# getremoteversion() {
+#   curl -sS https://raw.githubusercontent.com/g3org3/docker-clean/master/.version > $1
+# }
+#
+# if [[ "`which curl`" ]]; then
+#   checkversion
+# fi
 
 if [[ "$1" = "-v" ]]; then
   echo "version: v$VERSION";
