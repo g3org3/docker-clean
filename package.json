@@ -16,7 +16,7 @@
     "docker-clean"
   ],
   "bin": {
-    "docker-clean": "lib/docker-clean.sh"
+    "dockerclean": "lib/docker-clean.sh"
   },
   "author": "George <7jagjag@gmail.com>",
   "license": "MIT",
